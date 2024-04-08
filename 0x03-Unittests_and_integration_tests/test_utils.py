@@ -17,7 +17,7 @@ returns the expected result.
 import unittest
 from utils import access_nested_map
 from parameterized import parameterized
-from typing import Dict, Tuple, Any
+from typing import Dict, Tuple, Any, Union
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -31,6 +31,6 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self,
                                nested_map: Dict[str, Any],
                                path: Tuple[str],
-                               expected: Any):
+                               expected: Union[Dict, int]) -> None:
         """test_access_nested_map method"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
